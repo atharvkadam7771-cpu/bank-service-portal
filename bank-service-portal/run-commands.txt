@@ -1,0 +1,48 @@
+EXPERIMENT 10 - COMMAND CHEAT SHEET
+
+MAVEN
+-----
+mvn clean package
+
+GIT
+---
+git init
+git branch -M main
+git add .
+git commit -m "Initial Bank Service Portal project"
+git remote add origin https://github.com/YOUR_USERNAME/bank-service-portal.git
+git push -u origin main
+
+DOCKER
+------
+docker build -t bank-service-portal:1.1 .
+docker run -d --name bank-app -p 8081:8080 bank-service-portal:1.1
+docker ps
+docker logs bank-app
+
+KUBERNETES / MINIKUBE
+---------------------
+minikube start
+minikube image load bank-service-portal:1.1
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl get deployments
+kubectl get pods
+kubectl get services
+minikube service bank-service --url
+
+KUBERNETES CLEANUP
+------------------
+kubectl delete -f service.yaml
+kubectl delete -f deployment.yaml
+
+NAGIOS
+------
+/usr/local/nagios/libexec/check_http -H 127.0.0.1 -p 8080
+nagios -v /usr/local/nagios/etc/nagios.cfg
+systemctl restart nagios
+
+EXPECTED NAGIOS VALIDATION
+--------------------------
+Total Warnings: 0
+Total Errors:   0

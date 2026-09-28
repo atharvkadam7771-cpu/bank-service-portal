@@ -1,0 +1,27 @@
+JENKINS CONFIGURATION - Bank-Service-Portal-CI
+
+1. Create a Freestyle Project.
+2. Job name:
+   Bank-Service-Portal-CI
+
+3. Source Code Management:
+   Git
+
+4. Repository:
+   https://github.com/YOUR_USERNAME/bank-service-portal.git
+
+5. Branch:
+   */main
+
+6. Build:
+   Maven target:
+   clean package
+
+   If Maven build step is unavailable, use Execute Shell:
+   mvn clean package
+
+7. Build the job.
+
+Expected console result:
+BUILD SUCCESS
+Finished: SUCCESS
